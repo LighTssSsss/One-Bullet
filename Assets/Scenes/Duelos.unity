@@ -658,7 +658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiempoP1: 0
   tiempoP2: 0
-  tiempoDueloMin: 4
+  tiempoDueloMin: 5
   tiempoDueloMax: 7
   tiempoDeEspera: 3
   p1Disparo: 0
