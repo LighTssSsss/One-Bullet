@@ -5,10 +5,15 @@ using UnityEngine.Events;
 
 public class EventoAnimacion : MonoBehaviour
 {
-    public UnityEvent eventos;
+    public UnityEvent eventos,muertes;
 
     public void InvocarEvento()
     {
         eventos.Invoke();
+    }
+
+    public void InvocarMuerte()
+    {
+        muertes.Invoke();
     }
 }

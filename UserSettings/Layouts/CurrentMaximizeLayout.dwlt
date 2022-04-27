@@ -224,23 +224,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 025f0000
+      m_SelectedIDs: 3c56ffff
       m_LastClickedID: 0
-      m_ExpandedIDs: faa3ffffe4a9ffff3aaaffff84aaffffc8aaffffdeb5fffff6bdffff70bfffff0ac6ffffded7ffffc0d8ffff2cfbffff2e5e0000385e0000087d00008485000096850000a28500003e8b00004a8b000052900000
+      m_ExpandedIDs: ec57ffff3258ffff7858ffff8084ffff7691ffff9a9affffb29bffffee9bffff649cffff6aa2fffffaa3ffffe4a9ffff3aaaffff84aaffffc8aaffffdeb5fffff6bdffff70bfffff0ac6ffffded7ffffc0d8ffff2cfbffff2e5e0000385e0000087d00008485000096850000a28500003e8b00004a8b000052900000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Image
-        m_OriginalName: Image
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -22094
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -274,9 +274,9 @@ MonoBehaviour:
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
-  - {fileID: 9}
   - {fileID: 2}
-  m_Selected: 2
+  - {fileID: 9}
+  m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -525,9 +525,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1238.261, y: 377.26318, z: -7.6973114}
+    m_Target: {x: 1.9680974, y: -2.4860983, z: -0.0029102054}
     speed: 2
-    m_Value: {x: 1238.261, y: 377.26318, z: -7.6973114}
+    m_Value: {x: 1.9680974, y: -2.4860983, z: -0.0029102054}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -578,9 +578,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1236.0728
+    m_Target: 0.75213593
     speed: 2
-    m_Value: 1236.0728
+    m_Value: 0.75213593
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -705,9 +705,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: d94dc835e508b114fa0211ba849efe6c, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 0387dd9813af7864ebad1c29916edc8f, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 2809984249409476292, guid: d94dc835e508b114fa0211ba849efe6c, type: 2}
+  - m_Target: {fileID: 5858016554619130637, guid: 0387dd9813af7864ebad1c29916edc8f, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -789,13 +789,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scenes/Efecto de sonidos
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scenes/Efecto de sonidos
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\gonza\\OneDrive\\Im\xE1genes\\Documentos\\Unity
     Proyectos\\One-Bullet"
@@ -803,8 +803,8 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f45e0000
-    m_LastClickedID: 24308
+    m_SelectedIDs: fc5e0000
+    m_LastClickedID: 24316
     m_ExpandedIDs: 00000000d25e0000f45e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -858,10 +858,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 025f0000
-    m_LastClickedInstanceID: 24322
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000
+    m_SelectedInstanceIDs: 3c56ffff
+    m_LastClickedInstanceID: -43460
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -919,7 +919,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -22094
+  m_LastSelectedObjectID: 47520
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
