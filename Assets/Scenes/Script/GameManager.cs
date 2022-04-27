@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public Player player1;
     public Player player2;
     public GameObject desenfundado;
+    public GameObject sonidodesenfundado;
+    public GameObject latidoAntes;
 
     private float tiempoDuelo;
 
@@ -19,7 +21,9 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        //latidoAntes.SetActive(true);
         desenfundado.SetActive(false);
+        sonidodesenfundado.SetActive(false);
         ComenzarDuelo();
     }
 
@@ -75,7 +79,9 @@ public class GameManager : MonoBehaviour
 
      void Desenfundar()
     {
+        latidoAntes.SetActive(false);
         desenfundado.SetActive(true);
+        sonidodesenfundado.SetActive(true);
     }
 
 }

@@ -7,7 +7,15 @@ public class Player : MonoBehaviour
     public Animator animator;
     public GameManager gameManager;
     public bool player1;
-    public KeyCode boton;
+    public KeyCode boton,flechaUp,flechaD,flechaAb,flechaIz;
+    public SpriteRenderer arriba;
+    public SpriteRenderer abajo;
+    public SpriteRenderer derecha;
+    public SpriteRenderer izquierda;
+
+    private int numeroFlecha;
+    private int numeroApretado;
+
     private void Update()
     {
         if (Input.GetKeyDown(boton))
@@ -31,5 +39,33 @@ public class Player : MonoBehaviour
     public void ReproducirAnimacion(string nombreAnimacion)
     {
         animator.Play(nombreAnimacion);
+    }
+
+    public void GenerarNumero()
+    {
+        numeroFlecha = Random.Range(1, 5);
+    }
+
+    public void DetectarBoton()
+    {
+        if (Input.GetKeyDown(flechaUp))
+        {
+            numeroApretado = 1;
+        }
+
+        if (Input.GetKeyDown(flechaD))
+        {
+            numeroApretado = 2;
+        }
+
+        if (Input.GetKeyDown(flechaAb))
+        {
+            numeroApretado = 3;
+        }
+
+        if (Input.GetKeyDown(flechaIz))
+        {
+            numeroApretado = 4;
+        }
     }
 }
