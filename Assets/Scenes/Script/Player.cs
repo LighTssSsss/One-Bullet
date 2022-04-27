@@ -8,10 +8,7 @@ public class Player : MonoBehaviour
     public GameManager gameManager;
     public bool player1;
     public KeyCode boton,flechaUp,flechaD,flechaAb,flechaIz;
-    public SpriteRenderer arriba;
-    public SpriteRenderer abajo;
-    public SpriteRenderer derecha;
-    public SpriteRenderer izquierda;
+    public SpriteRenderer [] flechas;
 
     private int numeroFlecha;
     private int numeroApretado;
@@ -43,29 +40,56 @@ public class Player : MonoBehaviour
 
     public void GenerarNumero()
     {
-        numeroFlecha = Random.Range(1, 5);
+        numeroFlecha = Random.Range(0, 4);
     }
 
     public void DetectarBoton()
     {
         if (Input.GetKeyDown(flechaUp))
         {
-            numeroApretado = 1;
+            numeroApretado = 0;
+            CompararNumero();
         }
 
         if (Input.GetKeyDown(flechaD))
         {
-            numeroApretado = 2;
+            numeroApretado = 1;
+            CompararNumero();
         }
 
         if (Input.GetKeyDown(flechaAb))
         {
-            numeroApretado = 3;
+            numeroApretado = 2;
+            CompararNumero();
         }
 
         if (Input.GetKeyDown(flechaIz))
         {
-            numeroApretado = 4;
+            numeroApretado = 3;
+            CompararNumero();
+        }
+
+    }
+
+    void CompararNumero()
+    {
+        if(numeroApretado == numeroFlecha)
+        {
+            print("Correcto");
+        }
+        else
+        {
+            print("Malo");
+        }
+    }
+
+    public void MostrarFlecha()
+    {
+        GenerarNumero();
+
+        for(int i = 0; i < flechas.Length; i++)
+        {
+            flechas[i].enabled = numeroFlecha == i? true : false;
         }
     }
 }

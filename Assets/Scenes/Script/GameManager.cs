@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
         latidoAntes.SetActive(false);
         desenfundado.SetActive(true);
         sonidodesenfundado.SetActive(true);
+        player1.MostrarFlecha();
     }
 
 }
