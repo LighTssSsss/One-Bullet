@@ -7,30 +7,34 @@ public class Player : MonoBehaviour
     public Animator animator;
     public GameManager gameManager;
     public bool player1;
+    public bool enTiempo;
     public KeyCode boton,flechaUp,flechaD,flechaAb,flechaIz;
     public SpriteRenderer [] flechas;
 
-    private int numeroFlecha;
-    private int numeroApretado;
+    public int numeroFlecha;
+    public int numeroApretado;
 
     private void Update()
     {
-        if (Input.GetKeyDown(boton))
-        {
-            ReproducirAnimacion("Disparo");
-           
-            if (player1 == true)
-            {
-                gameManager.p1Disparo = true;
-                gameManager.tiempoP1 = Time.time;        
-            }
-            else
-            {
-                gameManager.p2Disparo = true;
-                gameManager.tiempoP2 = Time.time;
-            }
-            gameManager.Comparar();
-        }
+        /*if (Input.GetKeyDown(boton))
+       {
+           ReproducirAnimacion("Disparo");
+
+           if (player1 == true)
+           {
+               gameManager.p1Disparo = true;
+               gameManager.tiempoP1 = Time.time;        
+           }
+           else
+           {
+               gameManager.p2Disparo = true;
+               gameManager.tiempoP2 = Time.time;
+           }
+           gameManager.Comparar();
+       }*/
+        DispararFueraDeTiempo();
+        DetectarBoton();
+
     }
 
     public void ReproducirAnimacion(string nombreAnimacion)
@@ -45,6 +49,11 @@ public class Player : MonoBehaviour
 
     public void DetectarBoton()
     {
+        if (!enTiempo)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(flechaUp))
         {
             numeroApretado = 0;
@@ -68,18 +77,62 @@ public class Player : MonoBehaviour
             numeroApretado = 3;
             CompararNumero();
         }
+    }
 
+    public void DispararFueraDeTiempo()
+    {
+        if (!enTiempo)
+        {
+            if (Input.GetKeyDown(flechaUp))
+            {
+                SeEquivoco();
+            }
+
+            if (Input.GetKeyDown(flechaD))
+            {
+                SeEquivoco();
+            }
+
+            if (Input.GetKeyDown(flechaAb))
+            {
+                SeEquivoco();
+            }
+
+            if (Input.GetKeyDown(flechaIz))
+            {
+                SeEquivoco();
+            }
+        }
+    }
+
+    void SeEquivoco()
+    {
+        print("Error");
     }
 
     void CompararNumero()
     {
-        if(numeroApretado == numeroFlecha)
+        if (numeroApretado == numeroFlecha)
         {
             print("Correcto");
+                ReproducirAnimacion("Disparo");
+                CambiarColor("green");
+                if (player1 == true)
+                {
+                    gameManager.p1Disparo = true;
+                    gameManager.tiempoP1 = Time.time;
+                }
+                else
+                {
+                    gameManager.p2Disparo = true;
+                    gameManager.tiempoP2 = Time.time;
+                }
+                gameManager.Comparar();
+            
         }
         else
         {
-            print("Malo");
+            SeEquivoco();
         }
     }
 
@@ -91,5 +144,16 @@ public class Player : MonoBehaviour
         {
             flechas[i].enabled = numeroFlecha == i? true : false;
         }
+
+        enTiempo = true;
     }
+
+    void CambiarColor(string color)
+    {
+        for (int i = 0; i < flechas.Length; i++)
+        {
+            flechas[i].color = color == "green" ? Color.green : Color.white;
+        }
+    }
+
 }
