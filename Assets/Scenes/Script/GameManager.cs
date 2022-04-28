@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
         desenfundado.SetActive(true);
         sonidodesenfundado.SetActive(true);
         player1.MostrarFlecha();
+        player2.MostrarFlecha();
 
     }
 
