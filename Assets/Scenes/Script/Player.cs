@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public GameManager gameManager;
     public bool player1;
     public bool enTiempo;
+    public bool puedoPresionarTecla;
     public KeyCode boton,flechaUp,flechaD,flechaAb,flechaIz;
     public SpriteRenderer [] flechas;
 
@@ -54,25 +55,27 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(flechaUp))
+         puedoPresionarTecla = true;
+
+        if (puedoPresionarTecla == true && Input.GetKeyDown(flechaUp))
         {
             numeroApretado = 0;
             CompararNumero();
         }
 
-        if (Input.GetKeyDown(flechaD))
+        if (puedoPresionarTecla == true && Input.GetKeyDown(flechaD))
         {
             numeroApretado = 1;
             CompararNumero();
         }
 
-        if (Input.GetKeyDown(flechaAb))
+        if (puedoPresionarTecla == true && Input.GetKeyDown(flechaAb))
         {
             numeroApretado = 2;
             CompararNumero();
         }
 
-        if (Input.GetKeyDown(flechaIz))
+        if (puedoPresionarTecla == true && Input.GetKeyDown(flechaIz))
         {
             numeroApretado = 3;
             CompararNumero();
@@ -81,40 +84,55 @@ public class Player : MonoBehaviour
 
     public void DispararFueraDeTiempo()
     {
-        if (!enTiempo)
+        if (!enTiempo && !puedoPresionarTecla)
         {
-            if (Input.GetKeyDown(flechaUp))
+            if (Input.GetKeyDown(flechaUp)) //animator.SetTrigger("PresionoAntes"); Agregue en animator los make transition en idle y Presiono antes
+                                                                                  //a los 2 player y un trigger llamado PresionoAntes.
             {
+                print("Error Presiono antes");
                 SeEquivoco();
             }
 
-            if (Input.GetKeyDown(flechaD))
+            if (Input.GetKeyDown(flechaD)) //animator.SetTrigger("PresionoAntes");
             {
+                print("Error Presiono antes");
                 SeEquivoco();
             }
 
-            if (Input.GetKeyDown(flechaAb))
+            if (Input.GetKeyDown(flechaAb)) //animator.SetTrigger("PresionoAntes");
             {
+                print("Error Presiono antes");
                 SeEquivoco();
             }
 
-            if (Input.GetKeyDown(flechaIz))
+            if (Input.GetKeyDown(flechaIz)) //animator.SetTrigger("PresionoAntes");
             {
+                print("Error Presiono antes");
                 SeEquivoco();
             }
         }
+
+        //SeEquivoco();
     }
 
     void SeEquivoco()
     {
-        print("Error");
+        //print("Error Presiono antes");
+        ReproducirAnimacion("PresionoAntes");
+    }
+
+    void FlechaEquivocada()
+    {
+        print("Flecha Equivocada"); 
+        CambiarColor2("red");
+
     }
 
     void CompararNumero()
     {
         if (numeroApretado == numeroFlecha)
         {
-            print("Correcto");
+            print("Correcto"); //Borrar despues
                 ReproducirAnimacion("Disparo");
                 CambiarColor("green");
                 if (player1 == true)
@@ -132,7 +150,18 @@ public class Player : MonoBehaviour
         }
         else
         {
-            SeEquivoco();
+            FlechaEquivocada();
+            ReproducirAnimacion("TeclaEquivocada");
+            if (player1 == true)
+            {
+                gameManager.p1Disparo = false;
+                //gameManager.tiempoP1 = Time.time;
+            }
+            else
+            {
+                gameManager.p2Disparo = false;
+                //gameManager.tiempoP2 = Time.time;
+            }
         }
     }
 
@@ -153,6 +182,14 @@ public class Player : MonoBehaviour
         for (int i = 0; i < flechas.Length; i++)
         {
             flechas[i].color = color == "green" ? Color.green : Color.white;
+        }
+    }
+
+    void CambiarColor2(string color)
+    {
+        for (int i = 0; i < flechas.Length; i++)
+        {
+            flechas[i].color = color == "red" ? Color.red : Color.white;
         }
     }
 

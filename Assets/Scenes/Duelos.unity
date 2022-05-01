@@ -3974,6 +3974,7 @@ MonoBehaviour:
   gameManager: {fileID: 285019994}
   player1: 1
   enTiempo: 0
+  puedoPresionarTecla: 0
   boton: 119
   flechaUp: 119
   flechaD: 100
@@ -4795,6 +4796,7 @@ MonoBehaviour:
   gameManager: {fileID: 285019994}
   player1: 0
   enTiempo: 0
+  puedoPresionarTecla: 0
   boton: 273
   flechaUp: 273
   flechaD: 275
