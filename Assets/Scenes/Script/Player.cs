@@ -9,11 +9,26 @@ public class Player : MonoBehaviour
     public bool player1;
     public bool enTiempo;
     public bool puedoPresionarTecla;
+    public bool noPresionarTecla;
     public KeyCode boton,flechaUp,flechaD,flechaAb,flechaIz;
     public SpriteRenderer [] flechas;
 
     public int numeroFlecha;
     public int numeroApretado;
+
+    public void Resetear()
+    {
+        noPresionarTecla = false;
+        enTiempo = false;
+        puedoPresionarTecla = false;
+        animator.Play("Idle");
+        for(int i = 0; i < flechas.Length; i++)
+        {
+            flechas[i].enabled = false;
+        }
+        numeroFlecha = 0;
+        numeroApretado = 0;
+    }
 
     private void Update()
     {
@@ -33,8 +48,13 @@ public class Player : MonoBehaviour
            }
            gameManager.Comparar();
        }*/
-        DispararFueraDeTiempo();
-        DetectarBoton();
+        //DispararFueraDeTiempo();
+        if (!noPresionarTecla)
+        {
+            DispararFueraDeTiempo();
+            DetectarBoton();
+
+        }
 
     }
 
@@ -50,6 +70,8 @@ public class Player : MonoBehaviour
 
     public void DetectarBoton()
     {
+        
+
         if (!enTiempo)
         {
             return;
@@ -61,24 +83,28 @@ public class Player : MonoBehaviour
         {
             numeroApretado = 0;
             CompararNumero();
+            noPresionarTecla = true;
         }
 
         if (puedoPresionarTecla == true && Input.GetKeyDown(flechaD))
         {
             numeroApretado = 1;
             CompararNumero();
+            noPresionarTecla = true;
         }
 
         if (puedoPresionarTecla == true && Input.GetKeyDown(flechaAb))
         {
             numeroApretado = 2;
             CompararNumero();
+            noPresionarTecla = true;
         }
 
         if (puedoPresionarTecla == true && Input.GetKeyDown(flechaIz))
         {
             numeroApretado = 3;
             CompararNumero();
+            noPresionarTecla = true;
         }
     }
 
@@ -119,6 +145,7 @@ public class Player : MonoBehaviour
     {
         //print("Error Presiono antes");
         ReproducirAnimacion("PresionoAntes");
+        noPresionarTecla = true;
     }
 
     void FlechaEquivocada()
@@ -146,7 +173,6 @@ public class Player : MonoBehaviour
                     gameManager.tiempoP2 = Time.time;
                 }
                 gameManager.Comparar();
-            
         }
         else
         {
@@ -162,7 +188,11 @@ public class Player : MonoBehaviour
                 gameManager.p2Disparo = false;
                 //gameManager.tiempoP2 = Time.time;
             }
+            Invoke("ColorBase", 1f);
+            Invoke("MostrarFlecha", 1f);
+
         }
+
     }
 
     public void MostrarFlecha()
@@ -192,5 +222,20 @@ public class Player : MonoBehaviour
             flechas[i].color = color == "red" ? Color.red : Color.white;
         }
     }
+
+     void VolverAColorBase(string color)
+    {
+        for (int i = 0; i < flechas.Length; i++)
+        {
+            flechas[i].color = color == "white" ? Color.white : Color.white;
+        }
+    }
+
+    void ColorBase()
+    {
+        VolverAColorBase("white");
+    }
+
+
 
 }

@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         }
         Invoke("CompararGanador", tiempoDeEspera);
         puedeComparar = false;
+        Invoke("ResetearDuelo", tiempoDeEspera*2);
     }
 
 
@@ -76,6 +77,16 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void ResetearDuelo()
+    {
+        player1.Resetear();
+        player2.Resetear();
+        latidoAntes.SetActive(true);
+        desenfundado.SetActive(false);
+        sonidodesenfundado.SetActive(false);
+
+        ComenzarDuelo();
+    }
 
      void Desenfundar()
     {
