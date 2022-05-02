@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     private float tiempoDuelo;
 
 
-
     private void Awake()
     {
         //latidoAntes.SetActive(true);
@@ -55,12 +54,16 @@ public class GameManager : MonoBehaviour
         if (p1Disparo && !p2Disparo)
         {
             player2.ReproducirAnimacion("Muerte");
+            player2.NoAnimacion(); //Cuidado
+
+            //player2.PerdidaVidaJ2();
         }
 
 
         if (p2Disparo && !p1Disparo)
         {
             player1.ReproducirAnimacion("Muerte");
+            player1.NoAnimacion();
         }
 
         if (p1Disparo && p2Disparo)
@@ -84,6 +87,7 @@ public class GameManager : MonoBehaviour
         latidoAntes.SetActive(true);
         desenfundado.SetActive(false);
         sonidodesenfundado.SetActive(false);
+        puedeComparar = true;
 
         ComenzarDuelo();
     }

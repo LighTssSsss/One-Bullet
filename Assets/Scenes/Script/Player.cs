@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; //agregado para la vida
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class Player : MonoBehaviour
     public int numeroFlecha;
     public int numeroApretado;
 
+    /*public TextMeshProUGUI vidaJ1Text; ***AQUI EMPIEZA LA VIDA***
+    public TextMeshProUGUI vidaj2Text;
+
+    public int vidaJ1 = 3;
+    public int vidaJ2 = 3;*/
+
+    //public GameObject Calavera;
+
     public void Resetear()
     {
         noPresionarTecla = false;
@@ -28,7 +37,14 @@ public class Player : MonoBehaviour
         }
         numeroFlecha = 0;
         numeroApretado = 0;
+
     }
+
+    /*private void Start() // **agregado para la vida**
+    {
+        vidaJ1Text.text = "" + vidaJ1;
+        vidaj2Text.text = "" + vidaJ2;
+    }*/
 
     private void Update()
     {
@@ -55,6 +71,9 @@ public class Player : MonoBehaviour
             DetectarBoton();
 
         }
+
+        // vidaJ1Text.text = "" + vidaJ1; **AQUI IGUAL**
+        //vidaj2Text.text = "" + vidaJ2;
 
     }
 
@@ -83,28 +102,28 @@ public class Player : MonoBehaviour
         {
             numeroApretado = 0;
             CompararNumero();
-            noPresionarTecla = true;
+            //noPresionarTecla = true;
         }
 
         if (puedoPresionarTecla == true && Input.GetKeyDown(flechaD))
         {
             numeroApretado = 1;
             CompararNumero();
-            noPresionarTecla = true;
+            //noPresionarTecla = true;
         }
 
         if (puedoPresionarTecla == true && Input.GetKeyDown(flechaAb))
         {
             numeroApretado = 2;
             CompararNumero();
-            noPresionarTecla = true;
+            //noPresionarTecla = true;
         }
 
         if (puedoPresionarTecla == true && Input.GetKeyDown(flechaIz))
         {
             numeroApretado = 3;
             CompararNumero();
-            noPresionarTecla = true;
+            //noPresionarTecla = true;
         }
     }
 
@@ -145,7 +164,7 @@ public class Player : MonoBehaviour
     {
         //print("Error Presiono antes");
         ReproducirAnimacion("PresionoAntes");
-        noPresionarTecla = true;
+        //noPresionarTecla = true;
     }
 
     void FlechaEquivocada()
@@ -173,6 +192,8 @@ public class Player : MonoBehaviour
                     gameManager.tiempoP2 = Time.time;
                 }
                 gameManager.Comparar();
+            Invoke("ColorBase", 6f); //agregado
+            noPresionarTecla = true; //agregado
         }
         else
         {
@@ -188,8 +209,8 @@ public class Player : MonoBehaviour
                 gameManager.p2Disparo = false;
                 //gameManager.tiempoP2 = Time.time;
             }
-            Invoke("ColorBase", 1f);
-            Invoke("MostrarFlecha", 1f);
+            Invoke("ColorBase", 4f);  //Jugar con esto y con el tiempoDeEspera
+            Invoke("MostrarFlecha", 4f);
 
         }
 
@@ -236,6 +257,14 @@ public class Player : MonoBehaviour
         VolverAColorBase("white");
     }
 
+    public void NoAnimacion()
+    {
+        noPresionarTecla = true;
+    }
 
+    /*public void PerdidaVidaJ2() **AQUI QUITAR**
+    {
+        vidaJ2 -= 1;
+    }*/
 
 }
