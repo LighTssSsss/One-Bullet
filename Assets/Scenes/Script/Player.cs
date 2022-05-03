@@ -17,11 +17,11 @@ public class Player : MonoBehaviour
     public int numeroFlecha;
     public int numeroApretado;
 
-    /*public TextMeshProUGUI vidaJ1Text; ***AQUI EMPIEZA LA VIDA***
+    public TextMeshProUGUI vidaj1Text; //***AQUI EMPIEZA LA VIDA***
     public TextMeshProUGUI vidaj2Text;
 
     public int vidaJ1 = 3;
-    public int vidaJ2 = 3;*/
+    public int vidaJ2 = 3;
 
     //public GameObject Calavera;
 
@@ -40,11 +40,11 @@ public class Player : MonoBehaviour
 
     }
 
-    /*private void Start() // **agregado para la vida**
+    private void Start() // **agregado para la vida**
     {
-        vidaJ1Text.text = "" + vidaJ1;
+        vidaj1Text.text = "" + vidaJ1;
         vidaj2Text.text = "" + vidaJ2;
-    }*/
+    }
 
     private void Update()
     {
@@ -72,8 +72,8 @@ public class Player : MonoBehaviour
 
         }
 
-        // vidaJ1Text.text = "" + vidaJ1; **AQUI IGUAL**
-        //vidaj2Text.text = "" + vidaJ2;
+        vidaj1Text.text = "" + vidaJ1; //**AQUI IGUAL**
+        vidaj2Text.text = "" + vidaJ2;
 
     }
 
@@ -262,9 +262,14 @@ public class Player : MonoBehaviour
         noPresionarTecla = true;
     }
 
-    /*public void PerdidaVidaJ2() **AQUI QUITAR**
+    public void PerdidaVidaJ2() //**AQUI QUITAR**
     {
         vidaJ2 -= 1;
-    }*/
+    }
+
+    public void PerdidaVidaJ1()
+    {
+        vidaJ1 -= 1;
+    }
 
 }

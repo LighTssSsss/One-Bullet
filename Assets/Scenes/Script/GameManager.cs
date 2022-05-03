@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
 
     private float tiempoDuelo;
 
+   /* public TextMeshProUGUI vidaj1Text; //***AQUI EMPIEZA LA VIDA***
+    public TextMeshProUGUI vidaj2Text;
+
+    public int vidaJ1 = 3;
+    public int vidaJ2 = 3;*/
+
 
     private void Awake()
     {
@@ -26,7 +32,11 @@ public class GameManager : MonoBehaviour
         ComenzarDuelo();
     }
 
-
+    /*private void Start() // **agregado para la vida**
+    {
+        vidaj1Text.text = "" + vidaJ1;
+        vidaj2Text.text = "" + vidaJ2;
+    }*/
 
     public void ComenzarDuelo()
     {
@@ -34,7 +44,11 @@ public class GameManager : MonoBehaviour
         Invoke("Desenfundar", tiempoDuelo);
     }
 
-
+    /*private void Update()
+    {
+        vidaj1Text.text = "" + vidaJ1; //**AQUI IGUAL**
+        vidaj2Text.text = "" + vidaJ2;
+    }*/
 
     public void Comparar()
     {
@@ -55,15 +69,18 @@ public class GameManager : MonoBehaviour
         {
             player2.ReproducirAnimacion("Muerte");
             player2.NoAnimacion(); //Cuidado
-
-            //player2.PerdidaVidaJ2();
+            player2.PerdidaVidaJ2();
+            
         }
 
 
         if (p2Disparo && !p1Disparo)
         {
             player1.ReproducirAnimacion("Muerte");
-            player1.NoAnimacion();
+            player1.NoAnimacion(); //Cuidado
+            player1.PerdidaVidaJ1();
+            
+             
         }
 
         if (p1Disparo && p2Disparo)
@@ -71,10 +88,14 @@ public class GameManager : MonoBehaviour
             if (tiempoP1 < tiempoP2)
             {
                 player2.ReproducirAnimacion("Muerte");
+                player2.PerdidaVidaJ2();
+                
             }
             else
             {
                 player1.ReproducirAnimacion("Muerte");
+                player1.PerdidaVidaJ1();
+                
             }
         }
 
@@ -101,5 +122,15 @@ public class GameManager : MonoBehaviour
         player2.MostrarFlecha();
 
     }
+
+    /*public void PerdidaVidaJ2() //**AQUI QUITAR**
+    {
+        vidaJ2 -= 1;
+    }
+
+    public void PerdidaVidaJ1()
+    {
+        vidaJ1 -= 1;
+    }*/
 
 }
