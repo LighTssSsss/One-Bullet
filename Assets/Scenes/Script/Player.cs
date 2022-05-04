@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro; //agregado para la vida
+using UnityEngine.UI; //Agregado para el menu
 
 public class Player : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class Player : MonoBehaviour
 
     public int vidaJ1 = 3;
     public int vidaJ2 = 3;
+
+
+    // Aparicion del menu
 
     //public GameObject Calavera;
 
@@ -74,6 +78,8 @@ public class Player : MonoBehaviour
 
         vidaj1Text.text = "" + vidaJ1; //**AQUI IGUAL**
         vidaj2Text.text = "" + vidaJ2;
+
+        CompararVida();
 
     }
 
@@ -285,6 +291,7 @@ public class Player : MonoBehaviour
             // Hacer visible el gameobject ganador jugador 1
             // Detener el reseteo o pausar el juego
             //Hacer aparecer el menu de partida finalizada
+
         }
 
         if (vidaJ1 <= 0 && vidaJ2 > 0)
