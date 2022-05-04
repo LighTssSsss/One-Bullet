@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
 
     void ResetearDuelo()
     {
-        if(player1.vidaJ1 <= 0 || player2.vidaJ2 <= 0)
+        if(player1.vidaJ1 <= 0 || player2.vidaJ2 <= 0) //Solo una de las dos se cumplen
         {
             return;
         }
@@ -208,9 +208,6 @@ public class GameManager : MonoBehaviour
     {
         ganador2.SetActive(true);
     }*/
-
-
-
 
 
 
