@@ -272,4 +272,27 @@ public class Player : MonoBehaviour
         vidaJ1 -= 1;
     }
 
+
+    public void CompararVida()
+    {
+        if(vidaJ1 > 0 && vidaJ2 > 0)
+        {
+            return;
+        }
+
+        if(vidaJ1 > 0 && vidaJ2 <= 0)
+        {
+            // Hacer visible el gameobject ganador jugador 1
+            // Detener el reseteo o pausar el juego
+            //Hacer aparecer el menu de partida finalizada
+        }
+
+        if (vidaJ1 <= 0 && vidaJ2 > 0)
+        {
+            // Hacer visible el gameobject ganador jugador 2
+            // Detener el reseteo o pausar el juego
+            //Hacer aparecer el menu de partida finalizada
+        }
+    }
+
 }

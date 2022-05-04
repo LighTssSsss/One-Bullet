@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
             player2.ReproducirAnimacion("Muerte");
             player2.NoAnimacion(); //Cuidado
             player2.PerdidaVidaJ2();
+            player1.PerdidaVidaJ2();
             
         }
 
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
             player1.ReproducirAnimacion("Muerte");
             player1.NoAnimacion(); //Cuidado
             player1.PerdidaVidaJ1();
-            
+            player2.PerdidaVidaJ1();
              
         }
 
@@ -89,13 +90,17 @@ public class GameManager : MonoBehaviour
             {
                 player2.ReproducirAnimacion("Muerte");
                 player2.PerdidaVidaJ2();
-                
+                player1.PerdidaVidaJ2();
+
+
             }
             else
             {
                 player1.ReproducirAnimacion("Muerte");
                 player1.PerdidaVidaJ1();
-                
+                player2.PerdidaVidaJ1();
+
+
             }
         }
 
