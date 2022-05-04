@@ -116,12 +116,11 @@ public class GameManager : MonoBehaviour
 
     void ResetearDuelo()
     {
-        if(player1.vidaJ1 <= 0 && player2.vidaJ2 <= 0)
+        if(player1.vidaJ1 <= 0 || player2.vidaJ2 <= 0)
         {
             return;
         }
         //Hacer un return
-
         else
         {
             player1.Resetear();
@@ -133,6 +132,8 @@ public class GameManager : MonoBehaviour
 
             ComenzarDuelo();
         }
+           
+ 
         /*player1.Resetear();
         player2.Resetear();
         latidoAntes.SetActive(true);
