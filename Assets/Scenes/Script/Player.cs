@@ -333,6 +333,6 @@ public class Player : MonoBehaviour
     }
 
 
+        //Hacer posible cambio de vida aqui al gamemanager
    
-
 }

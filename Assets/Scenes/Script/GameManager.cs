@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     private float tiempoDuelo;
 
+    /*public  GameObject a;
+    public  GameObject b;*/
+
     /*public TextMeshProUGUI vidaj1Text; //***AQUI EMPIEZA LA VIDA***
     public TextMeshProUGUI vidaj2Text;
 
@@ -113,14 +116,31 @@ public class GameManager : MonoBehaviour
 
     void ResetearDuelo()
     {
-        player1.Resetear();
+        if(player1.vidaJ1 <= 0 && player2.vidaJ2 <= 0)
+        {
+            return;
+        }
+        //Hacer un return
+
+        else
+        {
+            player1.Resetear();
+            player2.Resetear();
+            latidoAntes.SetActive(true);
+            desenfundado.SetActive(false);
+            sonidodesenfundado.SetActive(false);
+            puedeComparar = true;
+
+            ComenzarDuelo();
+        }
+        /*player1.Resetear();
         player2.Resetear();
         latidoAntes.SetActive(true);
         desenfundado.SetActive(false);
         sonidodesenfundado.SetActive(false);
         puedeComparar = true;
 
-        ComenzarDuelo();
+        ComenzarDuelo();*/
     }
 
      void Desenfundar()
@@ -130,7 +150,6 @@ public class GameManager : MonoBehaviour
         sonidodesenfundado.SetActive(true);
         player1.MostrarFlecha();
         player2.MostrarFlecha();
-
 
 
        player1.CompararVida();
