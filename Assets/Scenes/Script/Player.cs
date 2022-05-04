@@ -29,7 +29,9 @@ public class Player : MonoBehaviour
     public GameObject Ganador2;
 
     // Aparicion del menu
-
+    public GameObject botonVolverAjugar;
+    public GameObject botonVolverAmenu;
+    public Image partidaFinalizada;
 
 
     //public GameObject Calavera;
@@ -56,6 +58,9 @@ public class Player : MonoBehaviour
 
         Ganador1.SetActive(false);
         Ganador2.SetActive(false);
+        partidaFinalizada.enabled = false;
+        botonVolverAjugar.gameObject.SetActive(false);
+        botonVolverAmenu.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -287,7 +292,9 @@ public class Player : MonoBehaviour
 
     public void AparecerMenu()
     {
-
+        botonVolverAjugar.gameObject.SetActive(true);
+        botonVolverAmenu.gameObject.SetActive(true);
+        partidaFinalizada.enabled = true;
     }
 
     public void MostrarPrimerGanador()
@@ -311,7 +318,7 @@ public class Player : MonoBehaviour
             // Detener el reseteo o pausar el juego
              
             //Hacer aparecer el menu de partida finalizada
-
+            Invoke("AparecerMenu", 2f);
         }
 
         if (vidaJ1 <= 0 && vidaJ2 > 0)

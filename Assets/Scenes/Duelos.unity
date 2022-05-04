@@ -309,7 +309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &80005342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4742,6 +4742,9 @@ MonoBehaviour:
   vidaJ2: 3
   Ganador1: {fileID: 184277182}
   Ganador2: {fileID: 1985820356}
+  botonVolverAjugar: {fileID: 1515261514}
+  botonVolverAmenu: {fileID: 622166891}
+  partidaFinalizada: {fileID: 570641182}
 --- !u!82 &1487463281
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5693,6 +5696,9 @@ MonoBehaviour:
   vidaJ2: 3
   Ganador1: {fileID: 184277182}
   Ganador2: {fileID: 1985820356}
+  botonVolverAjugar: {fileID: 1515261514}
+  botonVolverAmenu: {fileID: 622166891}
+  partidaFinalizada: {fileID: 570641182}
 --- !u!114 &1933199505
 MonoBehaviour:
   m_ObjectHideFlags: 0
