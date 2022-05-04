@@ -24,8 +24,13 @@ public class Player : MonoBehaviour
     public int vidaJ1 = 3;
     public int vidaJ2 = 3;
 
+    //Aparicion de victoria y derrota
+    public GameObject Ganador1;
+    public GameObject Ganador2;
 
     // Aparicion del menu
+
+
 
     //public GameObject Calavera;
 
@@ -44,10 +49,13 @@ public class Player : MonoBehaviour
 
     }
 
-    private void Start() // **agregado para la vida**
+   private void Start() // **agregado para la vida**
     {
         vidaj1Text.text = "" + vidaJ1;
         vidaj2Text.text = "" + vidaJ2;
+
+        Ganador1.SetActive(false);
+        Ganador2.SetActive(false);
     }
 
     private void Update()
@@ -95,7 +103,6 @@ public class Player : MonoBehaviour
 
     public void DetectarBoton()
     {
-        
 
         if (!enTiempo)
         {
@@ -278,18 +285,31 @@ public class Player : MonoBehaviour
         vidaJ1 -= 1;
     }
 
+    public void AparecerMenu()
+    {
+
+    }
+
+    public void MostrarPrimerGanador()
+    {
+        Ganador1.SetActive(true);
+    }
+
+    public void MostrarSegunGanador()
+    {
+        Ganador2.SetActive(true);
+    }
+
 
     public void CompararVida()
     {
-        if(vidaJ1 > 0 && vidaJ2 > 0)
-        {
-            return;
-        }
 
         if(vidaJ1 > 0 && vidaJ2 <= 0)
         {
             // Hacer visible el gameobject ganador jugador 1
+            Ganador1.SetActive(true);
             // Detener el reseteo o pausar el juego
+             
             //Hacer aparecer el menu de partida finalizada
 
         }
@@ -297,9 +317,15 @@ public class Player : MonoBehaviour
         if (vidaJ1 <= 0 && vidaJ2 > 0)
         {
             // Hacer visible el gameobject ganador jugador 2
+            Ganador2.SetActive(true);
             // Detener el reseteo o pausar el juego
+
             //Hacer aparecer el menu de partida finalizada
+
         }
     }
+
+
+   
 
 }

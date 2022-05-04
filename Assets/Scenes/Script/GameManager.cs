@@ -17,12 +17,14 @@ public class GameManager : MonoBehaviour
 
     private float tiempoDuelo;
 
-   /* public TextMeshProUGUI vidaj1Text; //***AQUI EMPIEZA LA VIDA***
+    /*public TextMeshProUGUI vidaj1Text; //***AQUI EMPIEZA LA VIDA***
     public TextMeshProUGUI vidaj2Text;
 
     public int vidaJ1 = 3;
-    public int vidaJ2 = 3;*/
+    public int vidaJ2 = 3;
 
+    /*public GameObject ganador1;
+    public GameObject ganador2;*/
 
     private void Awake()
     {
@@ -30,6 +32,9 @@ public class GameManager : MonoBehaviour
         desenfundado.SetActive(false);
         sonidodesenfundado.SetActive(false);
         ComenzarDuelo();
+
+        /*ganador1.SetActive(false);
+       ganador2.SetActive(false);*/
     }
 
     /*private void Start() // **agregado para la vida**
@@ -126,6 +131,11 @@ public class GameManager : MonoBehaviour
         player1.MostrarFlecha();
         player2.MostrarFlecha();
 
+
+
+       player1.CompararVida();
+       player2.CompararVida();
+      
     }
 
     /*public void PerdidaVidaJ2() //**AQUI QUITAR**
@@ -136,6 +146,52 @@ public class GameManager : MonoBehaviour
     public void PerdidaVidaJ1()
     {
         vidaJ1 -= 1;
+    }
+
+    public void CompararVida()
+    {
+        if (vidaJ1 > 0 && vidaJ2 > 0)
+        {
+            return;
+        }
+
+        if (vidaJ1 > 0 && vidaJ2 <= 0)
+        {
+            // Hacer visible el gameobject ganador jugador 1
+             Invoke("ganador1", 2f);
+            // Detener el reseteo o pausar el juego
+            //Hacer aparecer el menu de partida finalizada
+
+        }
+
+        if (vidaJ1 <= 0 && vidaJ2 > 0)
+        {
+            // Hacer visible el gameobject ganador jugador 2
+            Invoke("ganador2", 2f);
+            // Detener el reseteo o pausar el juego
+            //Hacer aparecer el menu de partida finalizada
+        }
+    }
+
+
+    public void AparecerMenu()
+    {
+
+    }
+
+    public void MostrarPrimerGanador()
+    {
+       ganador1.SetActive(true);
+    }
+
+    public void MostrarSegunGanador()
+    {
+        ganador2.SetActive(true);
     }*/
+
+
+
+
+
 
 }
