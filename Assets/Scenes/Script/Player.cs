@@ -328,7 +328,7 @@ public class Player : MonoBehaviour
             // Detener el reseteo o pausar el juego
 
             //Hacer aparecer el menu de partida finalizada
-
+            Invoke("AparecerMenu", 2f);
         }
     }
 
