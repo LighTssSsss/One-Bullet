@@ -6,7 +6,7 @@ using UnityEngine.UI; //Agregado para el menu
 
 public class Player : MonoBehaviour
 {
-    public Animator animator;
+    public Animator animator, animatore;
     public GameManager gameManager;
     public bool player1;
     public bool enTiempo;
@@ -43,7 +43,8 @@ public class Player : MonoBehaviour
         enTiempo = false;
         puedoPresionarTecla = false;
         animator.Play("Idle");
-        for(int i = 0; i < flechas.Length; i++)
+        //animatore.Play("CorazonLatiendo");
+        for (int i = 0; i < flechas.Length; i++)
         {
             flechas[i].enabled = false;
         }
@@ -101,6 +102,11 @@ public class Player : MonoBehaviour
     public void ReproducirAnimacion(string nombreAnimacion)
     {
         animator.Play(nombreAnimacion);
+    }
+
+    public void ReproduceAnimacion(string nombAnimacion)
+    {
+        animatore.Play(nombAnimacion);
     }
 
     public void GenerarNumero()
@@ -317,6 +323,7 @@ public class Player : MonoBehaviour
         if(vidaJ1 > 0 && vidaJ2 <= 0)
         {
             Invoke("MostrarPrimerGanador", 2f);
+            ReproduceAnimacion("Corazon Muerte2 ");
             // Hacer visible el gameobject ganador jugador 1
             //Ganador1.SetActive(true);
             // Detener el reseteo o pausar el juego
@@ -328,6 +335,7 @@ public class Player : MonoBehaviour
         if (vidaJ1 <= 0 && vidaJ2 > 0)
         {
             Invoke("MostrarSegunGanador", 2f);
+            ReproduceAnimacion("Corazon Muerte ");
             // Hacer visible el gameobject ganador jugador 2
             //Ganador2.SetActive(true);
             // Detener el reseteo o pausar el juego
