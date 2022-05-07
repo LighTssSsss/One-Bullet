@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public GameObject botonVolverAjugar;
     public GameObject botonVolverAmenu;
     public Image partidaFinalizada;
+    public Image fondoAtras;
 
 
     //public GameObject Calavera;
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour
         Ganador1.SetActive(false);
         Ganador2.SetActive(false);
         partidaFinalizada.enabled = false;
+        fondoAtras.enabled = false;
         botonVolverAjugar.gameObject.SetActive(false);
         botonVolverAmenu.gameObject.SetActive(false);
     }
@@ -187,7 +189,7 @@ public class Player : MonoBehaviour
 
     void FlechaEquivocada()
     {
-        print("Flecha Equivocada"); 
+        print("Flecha Equivocada");
         CambiarColor2("red");
 
     }
@@ -210,8 +212,9 @@ public class Player : MonoBehaviour
                     gameManager.tiempoP2 = Time.time;
                 }
                 gameManager.Comparar();
-            Invoke("ColorBase", 6f); //agregado
+            Invoke("ColorBase", 3.93f); //agregado
             noPresionarTecla = true; //agregado
+           
         }
         else
         {
@@ -227,9 +230,8 @@ public class Player : MonoBehaviour
                 gameManager.p2Disparo = false;
                 //gameManager.tiempoP2 = Time.time;
             }
-            Invoke("ColorBase", 4f);  //Jugar con esto y con el tiempoDeEspera
-            Invoke("MostrarFlecha", 4f);
-
+            Invoke("ColorBase", 1f);  //Jugar con esto y con el tiempoDeEspera 
+            Invoke("MostrarFlecha", 0.9f); // Cuidado con los valores
         }
 
     }
@@ -295,6 +297,7 @@ public class Player : MonoBehaviour
         botonVolverAjugar.gameObject.SetActive(true);
         botonVolverAmenu.gameObject.SetActive(true);
         partidaFinalizada.enabled = true;
+        fondoAtras.enabled = true;
     }
 
     public void MostrarPrimerGanador()
@@ -313,24 +316,32 @@ public class Player : MonoBehaviour
 
         if(vidaJ1 > 0 && vidaJ2 <= 0)
         {
+            Invoke("MostrarPrimerGanador", 2f);
             // Hacer visible el gameobject ganador jugador 1
-            Ganador1.SetActive(true);
+            //Ganador1.SetActive(true);
             // Detener el reseteo o pausar el juego
-             
+             //***Listo***
             //Hacer aparecer el menu de partida finalizada
-            Invoke("AparecerMenu", 2f);
+            Invoke("AparecerMenu", 4f);
         }
 
         if (vidaJ1 <= 0 && vidaJ2 > 0)
         {
+            Invoke("MostrarSegunGanador", 2f);
             // Hacer visible el gameobject ganador jugador 2
-            Ganador2.SetActive(true);
+            //Ganador2.SetActive(true);
             // Detener el reseteo o pausar el juego
-
+            //***Listo***
             //Hacer aparecer el menu de partida finalizada
-            Invoke("AparecerMenu", 2f);
+            Invoke("AparecerMenu", 4f);
         }
     }
 
-   
+   public void DesaparecerFlechas()
+    {
+        for (int i = 0; i < flechas.Length; i++)
+        {
+            flechas[i].enabled = false;
+        }
+    }
 }

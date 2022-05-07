@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         }
         Invoke("CompararGanador", tiempoDeEspera);
         puedeComparar = false;
-        Invoke("ResetearDuelo", tiempoDeEspera*2);
+        Invoke("ResetearDuelo", tiempoDeEspera*3); //Antiguotiempo dee espera es = 1.31
     }
 
 
@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
             player2.NoAnimacion(); //Cuidado
             player2.PerdidaVidaJ2();
             player1.PerdidaVidaJ2();
+            Invoke("ApagarFlechas", 0.5f);
             
         }
 
@@ -89,7 +90,8 @@ public class GameManager : MonoBehaviour
             player1.NoAnimacion(); //Cuidado
             player1.PerdidaVidaJ1();
             player2.PerdidaVidaJ1();
-             
+            Invoke("ApagarFlechas", 0.5f);
+
         }
 
         if (p1Disparo && p2Disparo)
@@ -99,7 +101,7 @@ public class GameManager : MonoBehaviour
                 player2.ReproducirAnimacion("Muerte");
                 player2.PerdidaVidaJ2();
                 player1.PerdidaVidaJ2();
-
+                Invoke("ApagarFlechas", 0.5f);
 
             }
             else
@@ -107,17 +109,23 @@ public class GameManager : MonoBehaviour
                 player1.ReproducirAnimacion("Muerte");
                 player1.PerdidaVidaJ1();
                 player2.PerdidaVidaJ1();
-
+                Invoke("ApagarFlechas", 0.5f);
 
             }
-        }
 
+            
+        }
+        //VolverTiempo();
     }
 
     void ResetearDuelo()
     {
         if(player1.vidaJ1 <= 0 || player2.vidaJ2 <= 0) //Solo una de las dos se cumplen
         {
+            //desenfundado.SetActive(false);
+            Invoke("DesaparicionDesenfundado", 1f);
+            /*player1.DesaparecerFlechas();
+            player2.DesaparecerFlechas();*/
             return;
         }
         //Hacer un return
@@ -125,6 +133,7 @@ public class GameManager : MonoBehaviour
         {
             player1.Resetear();
             player2.Resetear();
+            VolverTiempo();
             latidoAntes.SetActive(true);
             desenfundado.SetActive(false);
             sonidodesenfundado.SetActive(false);
@@ -210,5 +219,24 @@ public class GameManager : MonoBehaviour
     }*/
 
 
+    public void DesaparicionDesenfundado()
+    {
+       
+        desenfundado.SetActive(false);
+    }
 
+    public void VolverTiempo()
+    {
+        p1Disparo = false;
+        p2Disparo = false;
+        tiempoP1 = 0;
+        tiempoP2 = 0;
+    }
+
+
+    public void ApagarFlechas()
+    {
+        player1.DesaparecerFlechas();
+        player2.DesaparecerFlechas();
+    }
 }
