@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     public GameObject desenfundado;
     public GameObject sonidodesenfundado;
     public GameObject latidoAntes;
+    //public GameObject ganadorFinal;
+
+    public GameObject musica;
+
+    public Animator animatorr;
+
 
     private float tiempoDuelo;
 
@@ -34,6 +40,7 @@ public class GameManager : MonoBehaviour
         //latidoAntes.SetActive(true);
         desenfundado.SetActive(false);
         sonidodesenfundado.SetActive(false);
+        //ganadorFinal.SetActive(false);
         ComenzarDuelo();
 
         /*ganador1.SetActive(false);
@@ -50,6 +57,11 @@ public class GameManager : MonoBehaviour
     {
         tiempoDuelo = Random.Range(tiempoDueloMin, tiempoDueloMax);
         Invoke("Desenfundar", tiempoDuelo);
+    }
+
+    public void ProducirAnimacion(string animacionNombre)
+    {
+        animatorr.Play(animacionNombre);
     }
 
     /*private void Update()
@@ -123,7 +135,10 @@ public class GameManager : MonoBehaviour
         if(player1.vidaJ1 <= 0 || player2.vidaJ2 <= 0) //Solo una de las dos se cumplen
         {
             //desenfundado.SetActive(false);
-            Invoke("DesaparicionDesenfundado", 1f);
+            ProducirAnimacion("Desaparece Desenfundar");
+            //Invoke("DesaparicionDesenfundado", 1f);
+            Invoke("MusicaDesactivada", 0.9f);
+            musica.SetActive(false);
             /*player1.DesaparecerFlechas();
             player2.DesaparecerFlechas();*/
             return;
@@ -137,6 +152,7 @@ public class GameManager : MonoBehaviour
             latidoAntes.SetActive(true);
             desenfundado.SetActive(false);
             sonidodesenfundado.SetActive(false);
+            //ganadorFinal.SetActive(false);
             puedeComparar = true;
 
             ComenzarDuelo();
@@ -238,5 +254,10 @@ public class GameManager : MonoBehaviour
     {
         player1.DesaparecerFlechas();
         player2.DesaparecerFlechas();
+    }
+
+    public void MusicaDesactivada()
+    {
+        musica.SetActive(false);
     }
 }

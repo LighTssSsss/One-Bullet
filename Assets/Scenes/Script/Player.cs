@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     public Image partidaFinalizada;
     public Image fondoAtras;
 
-
+    public GameObject ganadorFinal;
     //public GameObject Calavera;
 
     public void Resetear()
@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
         noPresionarTecla = false;
         enTiempo = false;
         puedoPresionarTecla = false;
+        ganadorFinal.SetActive(false); // agregado
         animator.Play("Idle");
         //animatore.Play("CorazonLatiendo");
         for (int i = 0; i < flechas.Length; i++)
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
 
         Ganador1.SetActive(false);
         Ganador2.SetActive(false);
+        ganadorFinal.SetActive(false);
         partidaFinalizada.enabled = false;
         fondoAtras.enabled = false;
         botonVolverAjugar.gameObject.SetActive(false);
@@ -322,7 +324,8 @@ public class Player : MonoBehaviour
 
         if(vidaJ1 > 0 && vidaJ2 <= 0)
         {
-            Invoke("MostrarPrimerGanador", 2f);
+            Invoke("MostrarPrimerGanador", 1f);
+            Invoke("SonidoGanadorFinal", 1f);
             ReproduceAnimacion("Corazon Muerte2 ");
             // Hacer visible el gameobject ganador jugador 1
             //Ganador1.SetActive(true);
@@ -334,7 +337,8 @@ public class Player : MonoBehaviour
 
         if (vidaJ1 <= 0 && vidaJ2 > 0)
         {
-            Invoke("MostrarSegunGanador", 2f);
+            Invoke("MostrarSegunGanador", 1f);
+            Invoke("SonidoGanadorFinal", 1f);
             ReproduceAnimacion("Corazon Muerte ");
             // Hacer visible el gameobject ganador jugador 2
             //Ganador2.SetActive(true);
@@ -351,5 +355,10 @@ public class Player : MonoBehaviour
         {
             flechas[i].enabled = false;
         }
+    }
+
+    public void SonidoGanadorFinal()
+    {
+        ganadorFinal.SetActive(true);
     }
 }
