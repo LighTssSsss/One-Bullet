@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject latidoAntes;
     //public GameObject ganadorFinal;
 
-    public GameObject musica;
+    //public GameObject musica;
 
     public Animator animatorr;
 
@@ -137,8 +137,8 @@ public class GameManager : MonoBehaviour
             //desenfundado.SetActive(false);
             ProducirAnimacion("Desaparece Desenfundar");
             //Invoke("DesaparicionDesenfundado", 1f);
-            Invoke("MusicaDesactivada", 0.9f);
-            musica.SetActive(false);
+            //Invoke("MusicaDesactivada", 0.9f);
+            //musica.SetActive(false);
             /*player1.DesaparecerFlechas();
             player2.DesaparecerFlechas();*/
             return;
@@ -256,8 +256,8 @@ public class GameManager : MonoBehaviour
         player2.DesaparecerFlechas();
     }
 
-    public void MusicaDesactivada()
+    /*public void MusicaDesactivada()
     {
         musica.SetActive(false);
-    }
+    }*/
 }

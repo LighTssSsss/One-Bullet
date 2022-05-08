@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     public Image fondoAtras;
 
     public GameObject ganadorFinal;
+    public GameObject musicaFinal;
     //public GameObject Calavera;
 
     public void Resetear()
@@ -325,8 +326,10 @@ public class Player : MonoBehaviour
         if(vidaJ1 > 0 && vidaJ2 <= 0)
         {
             Invoke("MostrarPrimerGanador", 1f);
+            Invoke("MusicaFinalizada", 0.9f); //Agregada esta funcion
             Invoke("SonidoGanadorFinal", 1f);
             ReproduceAnimacion("Corazon Muerte2 ");
+            ReproduceAnimacion("Corazon Quieto Player 1"); //Agregada esta animacion
             // Hacer visible el gameobject ganador jugador 1
             //Ganador1.SetActive(true);
             // Detener el reseteo o pausar el juego
@@ -338,8 +341,10 @@ public class Player : MonoBehaviour
         if (vidaJ1 <= 0 && vidaJ2 > 0)
         {
             Invoke("MostrarSegunGanador", 1f);
+            Invoke("MusicaFinalizada", 0.9f); //Agregada esta funcion
             Invoke("SonidoGanadorFinal", 1f);
             ReproduceAnimacion("Corazon Muerte ");
+            ReproduceAnimacion("Corazon Quieto Player 2"); //Agregada esta animacion
             // Hacer visible el gameobject ganador jugador 2
             //Ganador2.SetActive(true);
             // Detener el reseteo o pausar el juego
@@ -360,5 +365,10 @@ public class Player : MonoBehaviour
     public void SonidoGanadorFinal()
     {
         ganadorFinal.SetActive(true);
+    }
+
+    public void MusicaFinalizada()
+    {
+        musicaFinal.SetActive(false);
     }
 }
