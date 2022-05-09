@@ -244,6 +244,8 @@ public class Player : MonoBehaviour
             }
             Invoke("ColorBase", 1f);  //Jugar con esto y con el tiempoDeEspera 
             Invoke("MostrarFlecha", 0.9f); // Cuidado con los valores
+            noPresionarTecla = true;
+            Invoke("AhoraPuedePresionarNuevamente", 0.9f);
         }
 
     }
@@ -374,5 +376,10 @@ public class Player : MonoBehaviour
     public void MusicaFinalizada()
     {
         musicaFinal.SetActive(false);
+    }
+
+    public void AhoraPuedePresionarNuevamente()
+    {
+        noPresionarTecla = false;
     }
 }
