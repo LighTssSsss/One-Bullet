@@ -7,13 +7,13 @@ public class MenuPartidaFinalizada : MonoBehaviour
 {
     public void VolveraJugar()
     {
-        Invoke("CargarEscena", 1f);
+        Invoke("CargarEscena", 0.8f);
         //SceneManager.LoadScene("Duelos");
     }
 
     public void IraMenu()
     {
-        Invoke("VolverAlMenu",1f);
+        Invoke("VolverAlMenu",0.8f);
         //SceneManager.LoadScene("Menu");
     }
 

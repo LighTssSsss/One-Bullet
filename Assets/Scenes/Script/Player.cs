@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
     public Image partidaFinalizada;
     public Image fondoAtras;
 
+    //Tutorial
+    public GameObject tutorial;
+
     public GameObject ganadorFinal;
     public GameObject musicaFinal;
     //public GameObject Calavera;
@@ -163,25 +166,25 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(flechaUp)) //animator.SetTrigger("PresionoAntes"); Agregue en animator los make transition en idle y Presiono antes
                                                                                   //a los 2 player y un trigger llamado PresionoAntes.
             {
-                print("Error Presiono antes");
+                //print("Error Presiono antes");
                 SeEquivoco();
             }
 
             if (Input.GetKeyDown(flechaD)) //animator.SetTrigger("PresionoAntes");
             {
-                print("Error Presiono antes");
+                //print("Error Presiono antes");
                 SeEquivoco();
             }
 
             if (Input.GetKeyDown(flechaAb)) //animator.SetTrigger("PresionoAntes");
             {
-                print("Error Presiono antes");
+               // print("Error Presiono antes");
                 SeEquivoco();
             }
 
             if (Input.GetKeyDown(flechaIz)) //animator.SetTrigger("PresionoAntes");
             {
-                print("Error Presiono antes");
+                //print("Error Presiono antes");
                 SeEquivoco();
             }
         }
@@ -198,7 +201,7 @@ public class Player : MonoBehaviour
 
     void FlechaEquivocada()
     {
-        print("Flecha Equivocada");
+        //print("Flecha Equivocada");
         CambiarColor2("red");
 
     }
@@ -207,7 +210,7 @@ public class Player : MonoBehaviour
     {
         if (numeroApretado == numeroFlecha)
         {
-            print("Correcto"); //Borrar despues
+            //print("Correcto"); //Borrar despues
                 ReproducirAnimacion("Disparo");
                 CambiarColor("green");
                 if (player1 == true)
@@ -303,6 +306,7 @@ public class Player : MonoBehaviour
 
     public void AparecerMenu()
     {
+        tutorial.gameObject.SetActive(false);
         botonVolverAjugar.gameObject.SetActive(true);
         botonVolverAmenu.gameObject.SetActive(true);
         partidaFinalizada.enabled = true;
