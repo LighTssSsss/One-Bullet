@@ -23,6 +23,13 @@ public class GameManager : MonoBehaviour
 
     private float tiempoDuelo;
 
+    //Paticulas
+    //public GameObject efecto;
+
+    //public ContactPoint2D contacto;
+
+    //public Vector3 pos;
+
     /*public  GameObject a;
     public  GameObject b;*/
 
@@ -103,6 +110,9 @@ public class GameManager : MonoBehaviour
             player1.PerdidaVidaJ1();
             player2.PerdidaVidaJ1();
             Invoke("ApagarFlechas", 0.5f);
+
+            /*Instantiate(efecto, new Vector3(this.transform.position.x, this.transform.position.y,
+                this.transform.position.z), transform.rotation);*/
 
         }
 
